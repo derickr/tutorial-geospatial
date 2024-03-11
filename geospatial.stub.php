@@ -14,6 +14,8 @@ final class LineString
 	private readonly array $points;
 
 	public function __construct(array $points) {}
+
+	public function getCoordinates() : array {}
 }
 
 }

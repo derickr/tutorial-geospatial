@@ -13,3 +13,14 @@ ZEND_METHOD(Geospatial_GeoJSON_LineString, __construct)
 
 	zend_update_property(Z_OBJCE_P(ZEND_THIS), Z_OBJ_P(ZEND_THIS), "points", strlen("points"), points);
 }
+
+ZEND_METHOD(Geospatial_GeoJSON_LineString, getCoordinates)
+{
+	ZEND_PARSE_PARAMETERS_NONE();
+
+	RETURN_ZVAL(
+		zend_read_property(Z_OBJCE_P(ZEND_THIS), Z_OBJ_P(ZEND_THIS), "points", strlen("points"), false, NULL),
+		true,
+		false
+	);
+}
