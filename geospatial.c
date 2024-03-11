@@ -11,6 +11,17 @@
 #include "lib/rdp.h"
 #include "geospatial_arginfo.h"
 
+zend_class_entry *geospatial_geojson_linestring_ce;
+
+static void geospatial_register_classes(void)
+{
+	geospatial_geojson_linestring_ce = register_class_Geospatial_GeoJSON_LineString();
+}
+
+PHP_MINIT_FUNCTION(geospatial)
+{
+	geospatial_register_classes();
+}
 
 /* {{{ PHP_RINIT_FUNCTION */
 PHP_RINIT_FUNCTION(geospatial)
@@ -38,7 +49,7 @@ zend_module_entry geospatial_module_entry = {
 	STANDARD_MODULE_HEADER,
 	"geospatial",					/* Extension name */
 	ext_functions,					/* zend_function_entry */
-	NULL,							/* PHP_MINIT - Module initialization */
+	PHP_MINIT(geospatial),			/* PHP_MINIT - Module initialization */
 	NULL,							/* PHP_MSHUTDOWN - Module shutdown */
 	PHP_RINIT(geospatial),			/* PHP_RINIT - Request initialization */
 	NULL,							/* PHP_RSHUTDOWN - Request shutdown */
