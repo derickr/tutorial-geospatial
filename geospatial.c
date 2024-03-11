@@ -52,3 +52,7 @@ ZEND_TSRMLS_CACHE_DEFINE()
 # endif
 ZEND_GET_MODULE(geospatial)
 #endif
+
+ZEND_FUNCTION(rdp_simplify)
+{
+}
