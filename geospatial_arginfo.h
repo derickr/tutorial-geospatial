@@ -1,5 +1,5 @@
 /* This is a generated file, edit the .stub.php file instead.
- * Stub hash: 878d149a356e12e64e45ba33a81cb5667de40e46 */
+ * Stub hash: 5c5504e685c3a026f593060cb648ceb3ef8771b5 */
 
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_rdp_simplify, 0, 2, IS_ARRAY, 0)
 	ZEND_ARG_TYPE_INFO(0, coordinates, IS_ARRAY, 0)
@@ -13,7 +13,7 @@ ZEND_END_ARG_INFO()
 ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_Geospatial_GeoJSON_LineString_getCoordinates, 0, 0, IS_ARRAY, 0)
 ZEND_END_ARG_INFO()
 
-ZEND_BEGIN_ARG_WITH_RETURN_TYPE_INFO_EX(arginfo_class_Geospatial_GeoJSON_LineString_simplify, 0, 1, IS_ARRAY, 0)
+ZEND_BEGIN_ARG_WITH_RETURN_OBJ_INFO_EX(arginfo_class_Geospatial_GeoJSON_LineString_simplify, 0, 1, Geospatial\\GeoJSON\\LineString, 0)
 	ZEND_ARG_TYPE_INFO(0, epsilon, IS_DOUBLE, 0)
 ZEND_END_ARG_INFO()
 

@@ -5,6 +5,8 @@
 
 #include "../lib/rdp.h"
 
+extern zend_class_entry *geospatial_geojson_linestring_ce;
+
 static bool valid_linestring(int argument_nr, zval *points)
 {
 	HashTable *ht = HASH_OF(points);
@@ -92,6 +94,7 @@ ZEND_METHOD(Geospatial_GeoJSON_LineString, simplify)
 {
 	double epsilon;
 	geo_array *points;
+	zval simplified_points;
 	int i;
 
 	ZEND_PARSE_PARAMETERS_START(1,1)
@@ -99,7 +102,7 @@ ZEND_METHOD(Geospatial_GeoJSON_LineString, simplify)
 	ZEND_PARSE_PARAMETERS_END();
 
 	/* Prepare return value */
-	array_init(return_value);
+	array_init(&simplified_points);
 
 	/* Convert PHP variables into algorithm data structures */
 	points = geo_hashtable_to_array(
@@ -125,11 +128,15 @@ ZEND_METHOD(Geospatial_GeoJSON_LineString, simplify)
 		add_next_index_double(&pair, points->x[i]);
 		add_next_index_double(&pair, points->y[i]);
 
-		add_next_index_zval(return_value, &pair);
+		add_next_index_zval(&simplified_points, &pair);
 	}
 
 	/* Clean Up */
 	geo_array_dtor(points);
 
+	/* Return values in new object */
+	object_init_ex(return_value, geospatial_geojson_linestring_ce);
+	zend_update_property(Z_OBJCE_P(return_value), Z_OBJ_P(return_value), "points", strlen("points"), &simplified_points);
+	zval_ptr_dtor(&simplified_points);
 }
 
