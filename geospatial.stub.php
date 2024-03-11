@@ -16,6 +16,7 @@ final class LineString
 	public function __construct(array $points) {}
 
 	public function getCoordinates() : array {}
+	public function simplify(float $epsilon) : array {}
 }
 
 }

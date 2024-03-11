@@ -12,4 +12,8 @@ extern zend_module_entry geospatial_module_entry;
 ZEND_TSRMLS_CACHE_EXTERN()
 # endif
 
+#include "lib/geo_array.h"
+geo_array *geo_hashtable_to_array(zval *array);
+
+
 #endif	/* PHP_GEOSPATIAL_H */
