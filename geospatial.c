@@ -55,4 +55,5 @@ ZEND_GET_MODULE(geospatial)
 
 ZEND_FUNCTION(rdp_simplify)
 {
+	array_init(return_value);
 }
