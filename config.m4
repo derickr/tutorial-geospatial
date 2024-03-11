@@ -14,5 +14,5 @@ PHP_ARG_ENABLE([geospatial],
 if test "$PHP_GEOSPATIAL" != "no"; then
   AC_DEFINE(HAVE_GEOSPATIAL, 1, [ Have geospatial support ])
 
-  PHP_NEW_EXTENSION(geospatial, geospatial.c, $ext_shared)
+  PHP_NEW_EXTENSION(geospatial, geospatial.c lib/rdp.c lib/geo_array.c, $ext_shared)
 fi
